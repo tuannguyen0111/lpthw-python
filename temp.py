@@ -1,32 +1,21 @@
-from sys import argv
-script,input_file = argv
+people = 20
+cars_cap = 15
+trucks_cap = 15
 
-def print_all(f):
-    print('\n' + f.read() +'\n')
-    print('-----------------------------\n')
+a = cars_cap != trucks_cap
 
-def rewind(f):
-    f.seek(0)
 
-def print_a_line(line_count,f):
-    print(f.readline())
 
-# Mo file
-current_file = open(input_file)
-
-# IN TAT CA
-print_all(current_file)
-
-# REWIND
-rewind(current_file)
-
-# IN 1 DONG
-lines = 0
-with open(input_file) as f:
-    for line in f:
-        lines = lines + 1
-# print(lines)
-current_line = 0
-while (current_line < lines):
-    print_a_line(current_line,current_file)
-    current_line = current_line + 1
+if (cars_cap != trucks_cap):
+    if ((people > cars_cap) and (people > trucks_cap)):
+        print("Too many people here! We're doomed!")
+    elif ((people < cars_cap) or (people <trucks_cap)):
+        if people < cars_cap:
+            print(f"We got {people} people and capacity of cars is: {cars_cap} ,trucks is : {trucks_cap}.\n==> Let's go in cars")
+        else:
+            print(f"We got {people} people and capacity of cars is: {cars_cap} ,trucks is : {trucks_cap}.\n==> Let's go in trucks")
+else:
+    if people <= cars_cap:
+        print(f"We got {people} people and capacity of cars and trucks is same: {trucks_cap}.\n==> Let's go in cars for better")
+    else:
+        print(f"We got {people} people and capacity of cars and trucks is same: {trucks_cap}!\n==> We're stay home guys!")
